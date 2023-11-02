@@ -1,0 +1,20 @@
+from microbit import *        
+temp = temperature()        
+light = display.read_light_level()
+
+while True:
+    PIR = pin2.read_digital()
+    if PIR ==1:
+        light1 = pin0.write_analog(1023 - light)
+        if temp <=24:
+            pin1.write_digital(1)
+
+        else:
+            pin1.write_digital(0)
+            pin0.write_digital(0)
+    display.scroll(temp)
+    sleep(1000)    
+    display.scroll(light)
+
+
+   
